@@ -18,4 +18,4 @@ Here is a preview of the login page:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/login-page.git
+   git clone https://github.com/jimmyochoa/login-page.git
