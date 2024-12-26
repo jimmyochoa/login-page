@@ -74,8 +74,8 @@ p {
 .suggestion-line {
     text-align: left;
     margin-top: 10px;
-    margin-left: 20px;
     margin-bottom: 20px;
+    margin-right: 50px;
 }
 
 .suggestion-line span,
