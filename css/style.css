@@ -22,7 +22,6 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    width: 100%;
     max-width: 1200px;
     padding: 20px;
 }
