@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,12 +9,10 @@
 
 body {
     background-color: #FBDA61;
-    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);    
+    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
     display: flex;
-    justify-items: center;
     justify-content: center;
     align-items: center;
-    top: 100vh;
     height: 100vh;
 }
 
@@ -21,7 +20,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
 }
 
 #login-form {
@@ -29,27 +32,34 @@ body {
     border-radius: 15px;
     text-align: center;
     padding: 50px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px; /* Allow the form to grow and shrink */
+    min-width: 280px;
+    display: flex;
+    flex-direction: column; /* Align inputs and button vertically */
+    align-items: center;
 }
 
-#login-form h2,p{
+#login-form h2,
+p {
     text-align: center;
     margin: 10px;
 }
 
 #login-form input {
-    width: 270px;
+    width: 100%;
+    max-width: 270px;
     height: 40px;
-    margin: 15px;
+    margin: 15px 0;
     padding-left: 10px;
     border-radius: 8px;
     border: 2px solid rgb(232, 230, 230);
     text-align: left;
 }
 
-
 #login-form button {
-    width: 270px;
+    width: 100%;
+    max-width: 270px;
     height: 40px;
     border-radius: 12px;
     border-width: 0;
@@ -61,45 +71,96 @@ body {
 #login-form button:hover {
     background-color: rgb(194, 97, 255);
 }
-#login-form button::backdrop {
-    background-color: rgb(138, 12, 197);
-}
-.suggestion-line span,a{
-    text-align: right;
-    font-size: 10px;
-    padding-left: 5px;
-    text-decoration: none;
-}
 
-.suggestion-line a{
-    color: black;
-    font-weight: bold;
-}
-
-.suggestion-line{
+.suggestion-line {
     text-align: left;
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 20px;
 }
 
-.form-image {
-    margin-left: 30px;
+.suggestion-line span,
+a {
+    text-align: right;
+    font-size: 10px;
+    padding-left: 5px;
+    text-decoration: none;
 }
 
-#alert-red {
+.suggestion-line a {
+    color: black;
+    font-weight: bold;
+}
+
+.form-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(241, 93, 93);
-    width: 300px;
+}
+
+#alert-red,
+#alert-green {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
     height: 60px;
     margin: 9px;
     padding: 20px;
     border-radius: 10px;
-
 }
-#alert-red p {
+
+#alert-red {
+    background-color: rgb(241, 93, 93);
+}
+
+#alert-red p,
+#alert-green p {
     color: white;
     font-size: 12px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet and Mobile devices (783px or less) */
+@media (max-width: 783px) {
+    #login-form {
+        padding: 30px;
+        width: 90%;
+        min-width: 0; /* Remove min-width for better responsiveness */
+    }
+
+    .form-image img {
+        display: none; /* Hide image on tablet and mobile devices */
+    }
+
+    #container {
+        justify-content: center;
+    }
+}
+
+/* Mobile devices (480px or less) */
+@media (max-width: 480px) {
+    body {
+        flex-direction: column;
+    }
+
+    #container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .form-image img {
+        display: none; /* Hide image on mobile */
+    }
+
+    #login-form {
+        padding: 20px;
+        width: 90%;
+    }
+
+    #login-form input {
+        max-width: 100%; /* Make inputs stretch to the full width */
+    }
 }
